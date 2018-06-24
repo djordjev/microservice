@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  resources:
+    build:
+      context:
+        ./resources
+    ports:
+      - "80:80"
+    container_name: resources
+    volumes:
+      - ./resources/res:/usr/share/nginx/html
