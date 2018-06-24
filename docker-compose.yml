@@ -5,8 +5,16 @@ services:
     build:
       context:
         ./resources
-    ports:
-      - "80:80"
     container_name: resources
     volumes:
       - ./resources/res:/usr/share/nginx/html
+
+  entry:
+    build:
+      context:
+        ./entry-server
+    ports:
+      - "80:80"
+    container_name: entry
+    depends_on:
+      - resources
